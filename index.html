@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tyson Dog Kennel | Premium Dogs & Accessories</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --brand-orange:#FF8A3D;
+  --brand-brown:#5B3A29;
+  --brand-cream:#FFF6EC;
+  --brand-green:#3EB489;
+}
+*{font-family:'Poppins',sans-serif;box-sizing:border-box;}
+h1,h2,h3,.font-fredoka{font-family:'Fredoka',sans-serif;}
+body{background:var(--brand-cream);overflow-x:hidden;color:#3f2a1e;}
+html{scroll-behavior:smooth;}
+.gradient-hero{
+  background:radial-gradient(circle at 20% 20%,#FFDAB3 0%,transparent 45%),
+  radial-gradient(circle at 80% 0%,#FFE8CF 0%,transparent 50%),
+  linear-gradient(135deg,#FFF6EC 0%,#FFE9D6 60%,#FFDCB8 100%);
+}
+.btn-primary{
+  background:linear-gradient(135deg,var(--brand-orange),#FF6B6B);
+  box-shadow:0 10px 25px -8px rgba(255,107,107,0.6);
+  transition:all .3s ease;
+}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 15px 30px -8px rgba(255,107,107,0.75);}
+.btn-outline{transition:all .3s ease;}
+.btn-outline:hover{background:var(--brand-brown);color:#fff;}
+.card-hover{transition:all .35s cubic-bezier(.2,.9,.3,1);}
+.card-hover:hover{transform:translateY(-8px);box-shadow:0 20px 40px -12px rgba(91,58,41,0.25);}
+.paw-bounce{animation:bounce-paw 3s ease-in-out infinite;}
+@keyframes bounce-paw{0%,100%{transform:translateY(0) rotate(0deg);}50%{transform:translateY(-14px) rotate(8deg);}}
+.float-slow{animation:float 6s ease-in-out infinite;}
+@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-15px);}}
+.badge-glow{box-shadow:0 0 0 4px rgba(62,180,137,0.15);}
+.fade-in{opacity:0;transform:translateY(30px);transition:all .8s ease;}
+.fade-in.show{opacity:1;transform:translateY(0);}
+::-webkit-scrollbar{width:10px;}
+::-webkit-scrollbar-track{background:#FFF6EC;}
+::-webkit-scrollbar-thumb{background:var(--brand-orange);border-radius:10px;}
+.nav-link{position:relative;}
+.nav-link::after{content:'';position:absolute;left:0;bottom:-4px;width:0%;height:2px;background:var(--brand-orange);transition:width .3s ease;}
+.nav-link:hover::after,.nav-link.active::after{width:100%;}
+.toast{transform:translateX(150%);transition:transform .4s ease;}
+.toast.show{transform:translateX(0);}
+.heart-btn.active svg{fill:#FF6B6B;stroke:#FF6B6B;}
+.tab-btn.active{background:var(--brand-orange);color:white;}
+.quantity-badge{animation:pop .3s ease;}
+@keyframes pop{0%{transform:scale(0.5);}100%{transform:scale(1);}}
+.cart-drawer{transform:translateX(100%);transition:transform .4s cubic-bezier(.2,.9,.3,1);}
+.cart-drawer.open{transform:translateX(0);}
+.overlay{opacity:0;pointer-events:none;transition:opacity .3s ease;}
+.overlay.show{opacity:1;pointer-events:auto;}
+.mobile-menu{max-height:0;overflow:hidden;transition:max-height .4s ease;}
+.mobile-menu.open{max-height:520px;}
+.pulse-dot{animation:pulse-dot 2s ease-in-out infinite;}
+@keyframes pulse-dot{0%,100%{transform:scale(1);opacity:1;}50%{transform:scale(1.4);opacity:.6;}}
+.blob{border-radius:60% 40% 30% 70%/60% 30% 70% 40%;}
+input:focus,select:focus,textarea:focus{outline:none;box-shadow:0 0 0 3px rgba(255,138,61,0.25);border-color:var(--brand-orange);}
+.star{color:#F5B942;}
+.modal-backdrop{opacity:0;pointer-events:none;transition:opacity .3s ease;}
+.modal-backdrop.show{opacity:1;pointer-events:auto;}
+.modal-box{transform:scale(.9) translateY(20px);transition:transform .35s cubic-bezier(.2,.9,.3,1);}
+.modal-backdrop.show .modal-box{transform:scale(1) translateY(0);}
+.nav-scrolled{background:rgba(255,255,255,0.92)!important;box-shadow:0 8px 30px -12px rgba(91,58,41,0.25);}
+.breed-chip{transition:all .25s ease;}
+.breed-chip:hover,.breed-chip.active{background:var(--brand-orange);color:#fff;}
+</style>
+</head>
+<body class="text-[#3f2a1e]">
+
+<!-- NAVBAR -->
+<nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-white/70 backdrop-blur-md shadow-sm">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between h-20">
+    <a href="#home" class="flex items-center gap-2">
+      <span class="text-3xl paw-bounce">🐾</span>
+      <span class="font-fredoka text-xl sm:text-2xl font-bold text-[#5B3A29]">Tyson <span class="text-[var(--brand-orange)]">Dog Kennel</span></span>
+    </a>
+    <div class="hidden lg:flex items-center gap-8 font-medium text-[#5B3A29]">
+      <a href="#home" class="nav-link active">Home</a>
+      <a href="#dogs" class="nav-link">Our Dogs</a>
+      <a href="#accessories" class="nav-link">Accessories</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#reviews" class="nav-link">Reviews</a>
+      <a href="#visit" class="nav-link">Visit Us</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <button id="wishlistBtn" class="relative p-2 rounded-full hover:bg-orange-50 transition" aria-label="Wishlist">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+        <span id="wishCount" class="hidden absolute -top-1 -right-1 bg-[#FF6B6B] text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center quantity-badge">0</span>
+      </button>
+      <button id="cartBtn" class="relative p-2 rounded-full hover:bg-orange-50 transition" aria-label="Cart">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z"/></svg>
+        <span id="cartCount" class="hidden absolute -top-1 -right-1 bg-[var(--brand-orange)] text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center quantity-badge">0</span>
+      </button>
+      <a href="tel:7352757487" class="hidden sm:inline-flex btn-primary text-white px-5 py-2.5 rounded-full font-semibold text-sm">Call Now</a>
+      <button id="menuBtn" class="lg:hidden p-2" aria-label="Menu">
+        <svg id="menuIcon" class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobileMenu" class="mobile-menu lg:hidden bg-white border-t border-orange-100">
+    <div class="px-6 py-4 flex flex-col gap-4 font-medium text-[#5B3A29]">
+      <a href="#home" class="py-1">Home</a>
+      <a href="#dogs" class="py-1">Our Dogs</a>
+      <a href="#accessories" class="py-1">Accessories</a>
+      <a href="#about" class="py-1">About</a>
+      <a href="#reviews" class="py-1">Reviews</a>
+      <a href="#visit" class="py-1">Visit Us</a>
+      <a href="#contact" class="py-1">Contact</a>
+      <a href="tel:7352757487" class="btn-primary text-white text-center py-3 rounded-full font-semibold">Call 7352757487</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="gradient-hero pt-28 pb-20 lg:pt-36 lg:pb-28 relative overflow-hidden">
+  <div class="absolute top-24 left-8 w-24 h-24 bg-orange-200/50 blob float-slow hidden md:block"></div>
+  <div class="absolute bottom-16 right-16 w-36 h-36 bg-amber-200/40 blob float-slow hidden md:block" style="animation-delay:1.5s"></div>
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 grid lg:grid-cols-2 gap-12 items-center">
+    <div class="fade-in">
+      <div class="inline-flex items-center gap-2 bg-white/80 backdrop-blur px-4 py-1.5 rounded-full text-sm font-medium text-[var(--brand-brown)] shadow-sm mb-6">
+        <span class="w-2 h-2 rounded-full bg-[var(--brand-green)] pulse-dot"></span>
+        Trusted kennel · Healthy, happy pups
+      </div>
+      <h1 class="font-fredoka text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-[#5B3A29] mb-5">
+        Find Your Forever Friend at <span class="text-[var(--brand-orange)]">Tyson Dog Kennel</span>
+      </h1>
+      <p class="text-lg text-[#6b4a38] mb-8 max-w-xl leading-relaxed">
+        Premium pedigree dogs and hand-picked accessories. Raised with love, vaccinated, and ready to join your family. Visit us or order accessories online.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <a href="#dogs" class="btn-primary text-white px-8 py-3.5 rounded-full font-semibold text-base">Meet Our Dogs</a>
+        <a href="#accessories" class="btn-outline border-2 border-[#5B3A29] text-[#5B3A29] px-8 py-3.5 rounded-full font-semibold">Shop Accessories</a>
+      </div>
+      <div class="flex flex-wrap gap-8 mt-10">
+        <div>
+          <p class="font-fredoka text-3xl font-bold text-[var(--brand-orange)]">50+</p>
+          <p class="text-sm text-[#6b4a38]">Happy Families</p>
+        </div>
+        <div>
+          <p class="font-fredoka text-3xl font-bold text-[var(--brand-orange)]">12+</p>
+          <p class="text-sm text-[#6b4a38]">Breeds Available</p>
+        </div>
+        <div>
+          <p class="font-fredoka text-3xl font-bold text-[var(--brand-orange)]">100%</p>
+          <p class="text-sm text-[#6b4a38]">Vaccinated Pups</p>
+        </div>
+      </div>
+    </div>
+    <div class="relative fade-in flex justify-center">
+      <div class="relative w-full max-w-md">
+        <div class="absolute -inset-4 bg-gradient-to-br from-orange-300/40 to-amber-200/30 blob"></div>
+        <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=800&q=80" alt="Happy golden retriever puppy" class="relative rounded-[2.5rem] shadow-2xl w-full h-[420px] object-cover">
+        <div class="absolute -bottom-5 -left-4 bg-white rounded-2xl shadow-xl p-4 flex items-center gap-3">
+          <span class="text-3xl">🦴</span>
+          <div>
+            <p class="font-semibold text-sm">Free Starter Kit</p>
+            <p class="text-xs text-[#8a6a55]">With every puppy adoption</p>
+          </div>
+        </div>
+        <div class="absolute -top-4 -right-2 bg-white rounded-2xl shadow-xl px-4 py-3 flex items-center gap-2">
+          <span class="text-2xl">⭐</span>
+          <div>
+            <p class="font-bold text-sm">4.9/5</p>
+            <p class="text-xs text-[#8a6a55]">Customer love</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOGS -->
+<section id="dogs" class="py-20 bg-[#FFF6EC]">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="text-center mb-10 fade-in">
+      <p class="text-[var(--brand-orange)] font-semibold tracking-wide uppercase text-sm mb-2">Our Companions</p>
+      <h2 class="font-fredoka text-4xl font-bold text-[#5B3A29] mb-3">Dogs Looking for a Home</h2>
+      <p class="text-[#6b4a38] max-w-2xl mx-auto">All puppies are dewormed, vaccinated, and raised in a loving environment. Filter by breed and reserve your favorite.</p>
+    </div>
+    <div class="flex flex-wrap justify-center gap-2 mb-10" id="breedFilters">
+      <button class="breed-chip active px-4 py-2 rounded-full bg-white border border-orange-100 text-sm font-medium shadow-sm" data-breed="all">All Breeds</button>
+      <button class="breed-chip px-4 py-2 rounded-full bg-white border border-orange-100 text-sm font-medium shadow-sm" data-breed="labrador">Labrador</button>
+      <button class="breed-chip px-4 py-2 rounded-full bg-white border border-orange-100 text-sm font-medium shadow-sm" data-breed="german-shepherd">German Shepherd</button>
+      <button class="breed-chip px-4 py-2 rounded-full bg-white border border-orange-100 text-sm font-medium shadow-sm" data-breed="golden">Golden Retriever</button>
+      <button class="breed-chip px-4 py-2 rounded-full bg-white border border-orange-100 text-sm font-medium shadow-sm" data-breed="beagle">Beagle</button>
+      <button class="breed-chip px-4 py-2 rounded-full bg-white border border-orange-100 text-sm font-medium shadow-sm" data-breed="indie">Indie</button>
+      <button class="breed-chip px-4 py-2 rounded-full bg-white border border-orange-100 text-sm font-medium shadow-sm" data-breed="pug">Pug</button>
+    </div>
+    <div id="dogGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-7"></div>
+  </div>
+</section>
+
+<!-- ACCESSORIES -->
+<section id="accessories" class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="text-center mb-10 fade-in">
+      <p class="text-[var(--brand-orange)] font-semibold tracking-wide uppercase text-sm mb-2">Pet Store</p>
+      <h2 class="font-fredoka text-4xl font-bold text-[#5B3A29] mb-3">Dog Accessories</h2>
+      <p class="text-[#6b4a38] max-w-2xl mx-auto">Collars, bowls, toys, beds and nutrition — everything your pup needs, curated by Tyson Dog Kennel.</p>
+    </div>
+    <div class="flex flex-wrap justify-center gap-2 mb-10" id="accTabs">
+      <button class="tab-btn active px-5 py-2 rounded-full bg-orange-50 text-sm font-semibold" data-cat="all">All</button>
+      <button class="tab-btn px-5 py-2 rounded-full bg-orange-50 text-sm font-semibold" data-cat="gear">Gear</button>
+      <button class="tab-btn px-5 py-2 rounded-full bg-orange-50 text-sm font-semibold" data-cat="toys">Toys</button>
+      <button class="tab-btn px-5 py-2 rounded-full bg-orange-50 text-sm font-semibold" data-cat="food">Food</button>
+      <button class="tab-btn px-5 py-2 rounded-full bg-orange-50 text-sm font-semibold" data-cat="care">Care</button>
+    </div>
+    <div id="accGrid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="py-20 bg-[#FFF6EC]">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 grid lg:grid-cols-2 gap-14 items-center">
+    <div class="relative fade-in">
+      <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=900&q=80" alt="Two dogs running outdoors" class="rounded-[2rem] shadow-xl w-full h-[420px] object-cover">
+      <div class="absolute bottom-6 left-6 bg-white/95 backdrop-blur rounded-2xl p-5 shadow-lg max-w-xs">
+        <p class="font-fredoka text-lg font-bold text-[#5B3A29]">Tyson Dog Kennel</p>
+        <p class="text-sm text-[#6b4a38] mt-1">Family-run kennel dedicated to ethical breeding and lifelong support for every adoption.</p>
+      </div>
+    </div>
+    <div class="fade-in">
+      <p class="text-[var(--brand-orange)] font-semibold tracking-wide uppercase text-sm mb-2">Who We Are</p>
+      <h2 class="font-fredoka text-4xl font-bold text-[#5B3A29] mb-5">Raised with Love. Placed with Care.</h2>
+      <p class="text-[#6b4a38] leading-relaxed mb-4">Tyson Dog Kennel is your neighborhood destination for healthy pedigree and indie dogs, plus a full range of accessories. Every puppy leaves with vaccination records, a health check, and a starter kit.</p>
+      <p class="text-[#6b4a38] leading-relaxed mb-8">We believe a dog is family — not a product. Visit our kennel, meet the parents when available, and take your time choosing the right companion.</p>
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div class="bg-white rounded-2xl p-5 shadow-sm card-hover">
+          <span class="text-2xl">💉</span>
+          <h3 class="font-semibold mt-2 mb-1">Vaccinated & Dewormed</h3>
+          <p class="text-sm text-[#8a6a55]">Complete first-shot schedule before going home.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-5 shadow-sm card-hover">
+          <span class="text-2xl">🏡</span>
+          <h3 class="font-semibold mt-2 mb-1">Home-Raised</h3>
+          <p class="text-sm text-[#8a6a55]">Socialized with people, kids, and other pets.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-5 shadow-sm card-hover">
+          <span class="text-2xl">📜</span>
+          <h3 class="font-semibold mt-2 mb-1">Papers & Support</h3>
+          <p class="text-sm text-[#8a6a55]">Pedigree docs and post-adoption guidance.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-5 shadow-sm card-hover">
+          <span class="text-2xl">🛒</span>
+          <h3 class="font-semibold mt-2 mb-1">In-House Store</h3>
+          <p class="text-sm text-[#8a6a55]">Food, beds, leashes and toys under one roof.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews" class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="text-center mb-12 fade-in">
+      <p class="text-[var(--brand-orange)] font-semibold tracking-wide uppercase text-sm mb-2">Testimonials</p>
+      <h2 class="font-fredoka text-4xl font-bold text-[#5B3A29]">Families Who Trust Us</h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <article class="bg-[#FFF6EC] rounded-2xl p-7 card-hover">
+        <div class="flex gap-1 mb-3"><span class="star">★★★★★</span></div>
+        <p class="text-[#5B3A29] mb-5 leading-relaxed">“Brought home a Labrador pup last month. Super healthy, already house-trained basics. Tyson team even called to check how Bruno settled in.”</p>
+        <div class="flex items-center gap-3">
+          <div class="w-11 h-11 rounded-full bg-orange-200 flex items-center justify-center font-bold text-[#5B3A29]">RK</div>
+          <div><p class="font-semibold text-sm">Rahul Kapoor</p><p class="text-xs text-[#8a6a55]">Delhi</p></div>
+        </div>
+      </article>
+      <article class="bg-[#FFF6EC] rounded-2xl p-7 card-hover">
+        <div class="flex gap-1 mb-3"><span class="star">★★★★★</span></div>
+        <p class="text-[#5B3A29] mb-5 leading-relaxed">“Best accessories shop nearby. The orthopedic bed and stainless bowls are excellent quality. Staff helped me pick the right collar size.”</p>
+        <div class="flex items-center gap-3">
+          <div class="w-11 h-11 rounded-full bg-amber-200 flex items-center justify-center font-bold text-[#5B3A29]">PS</div>
+          <div><p class="font-semibold text-sm">Priya Sharma</p><p class="text-xs text-[#8a6a55]">Noida</p></div>
+        </div>
+      </article>
+      <article class="bg-[#FFF6EC] rounded-2xl p-7 card-hover">
+        <div class="flex gap-1 mb-3"><span class="star">★★★★★</span></div>
+        <p class="text-[#5B3A29] mb-5 leading-relaxed">“Transparent about lineage and vaccinations. Our Beagle Coco is the joy of the house. Highly recommend Tyson Dog Kennel.”</p>
+        <div class="flex items-center gap-3">
+          <div class="w-11 h-11 rounded-full bg-green-200 flex items-center justify-center font-bold text-[#5B3A29]">AM</div>
+          <div><p class="font-semibold text-sm">Aman Mehta</p><p class="text-xs text-[#8a6a55]">Gurugram</p></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- VISIT / MAP -->
+<section id="visit" class="py-20 bg-[#FFF6EC]">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="text-center mb-12 fade-in">
+      <p class="text-[var(--brand-orange)] font-semibold tracking-wide uppercase text-sm mb-2">Find Us</p>
+      <h2 class="font-fredoka text-4xl font-bold text-[#5B3A29] mb-3">Visit Tyson Dog Kennel</h2>
+      <p class="text-[#6b4a38] max-w-xl mx-auto">Come meet the dogs in person. Walk-ins welcome — calling ahead is appreciated for puppy viewings.</p>
+    </div>
+    <div class="grid lg:grid-cols-5 gap-8 items-stretch">
+      <div class="lg:col-span-2 bg-white rounded-3xl p-8 shadow-sm flex flex-col justify-between">
+        <div>
+          <h3 class="font-fredoka text-2xl font-bold text-[#5B3A29] mb-6">Kennel Details</h3>
+          <div class="space-y-5">
+            <div class="flex gap-4">
+              <div class="w-12 h-12 rounded-2xl bg-orange-50 flex items-center justify-center text-xl shrink-0">📍</div>
+              <div>
+                <p class="font-semibold">Location</p>
+                <a href="https://share.google/5pGFfhTTH7oGObCUZ" target="_blank" rel="noopener" class="text-[var(--brand-orange)] text-sm hover:underline">Open in Google Maps</a>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <div class="w-12 h-12 rounded-2xl bg-orange-50 flex items-center justify-center text-xl shrink-0">📞</div>
+              <div>
+                <p class="font-semibold">Phone</p>
+                <a href="tel:7352757487" class="text-[var(--brand-orange)] text-sm hover:underline">7352757487</a>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <div class="w-12 h-12 rounded-2xl bg-orange-50 flex items-center justify-center text-xl shrink-0">✉️</div>
+              <div>
+                <p class="font-semibold">Email</p>
+                <a href="mailto:tysondogkennelpetshop@gmail.com" class="text-[var(--brand-orange)] text-sm hover:underline break-all">tysondogkennelpetshop@gmail.com</a>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <div class="w-12 h-12 rounded-2xl bg-orange-50 flex items-center justify-center text-xl shrink-0">🕐</div>
+              <div>
+                <p class="font-semibold">Hours</p>
+                <p class="text-sm text-[#6b4a38]">Mon – Sun · 9:00 AM – 7:00 PM</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a href="https://share.google/5pGFfhTTH7oGObCUZ" target="_blank" rel="noopener" class="btn-primary text-white text-center mt-8 py-3.5 rounded-full font-semibold">Get Directions</a>
+      </div>
+      <div class="lg:col-span-3 rounded-3xl overflow-hidden shadow-lg min-h-[360px] bg-orange-100 relative">
+        <iframe
+          title="Tyson Dog Kennel location"
+          src="https://maps.google.com/maps?q=https://share.google/5pGFfhTTH7oGObCUZ&z=15&output=embed"
+          class="w-full h-full min-h-[360px] border-0"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen>
+        </iframe>
+        <a href="https://share.google/5pGFfhTTH7oGObCUZ" target="_blank" rel="noopener" class="absolute bottom-4 right-4 bg-white/95 backdrop-blur px-4 py-2 rounded-full text-sm font-semibold shadow-md hover:bg-white">Open full map →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="grid lg:grid-cols-2 gap-12">
+      <div class="fade-in">
+        <p class="text-[var(--brand-orange)] font-semibold tracking-wide uppercase text-sm mb-2">Get in Touch</p>
+        <h2 class="font-fredoka text-4xl font-bold text-[#5B3A29] mb-4">Reserve a Puppy or Ask Anything</h2>
+        <p class="text-[#6b4a38] mb-8">Tell us the breed you love, your timeline, and we’ll get back the same day. You can also WhatsApp or call us directly.</p>
+        <div class="flex flex-wrap gap-3 mb-8">
+          <a href="tel:7352757487" class="inline-flex items-center gap-2 bg-[#5B3A29] text-white px-5 py-3 rounded-full font-semibold text-sm hover:opacity-90 transition">📞 7352757487</a>
+          <a href="mailto:tysondogkennelpetshop@gmail.com" class="inline-flex items-center gap-2 border-2 border-[#5B3A29] text-[#5B3A29] px-5 py-3 rounded-full font-semibold text-sm hover:bg-[#5B3A29] hover:text-white transition">✉️ Email Us</a>
+          <a href="https://wa.me/917352757487" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-[#3EB489] text-white px-5 py-3 rounded-full font-semibold text-sm hover:opacity-90 transition">💬 WhatsApp</a>
+        </div>
+        <ul class="space-y-3 text-sm text-[#6b4a38]">
+          <li class="flex items-start gap-2"><span class="text-[var(--brand-orange)] mt-0.5">✓</span> Same-day replies on enquiries</li>
+          <li class="flex items-start gap-2"><span class="text-[var(--brand-orange)] mt-0.5">✓</span> Kennel visits by appointment or walk-in</li>
+          <li class="flex items-start gap-2"><span class="text-[var(--brand-orange)] mt-0.5">✓</span> Accessory orders available for pickup</li>
+        </ul>
+      </div>
+      <form id="contactForm" class="bg-[#FFF6EC] rounded-3xl p-8 shadow-sm fade-in">
+        <div class="grid sm:grid-cols-2 gap-4 mb-4">
+          <div>
+            <label class="text-sm font-medium mb-1 block">Your Name</label>
+            <input required name="name" type="text" placeholder="Full name" class="w-full bg-white border border-orange-100 rounded-xl px-4 py-3">
+          </div>
+          <div>
+            <label class="text-sm font-medium mb-1 block">Phone</label>
+            <input required name="phone" type="tel" placeholder="Your number" class="w-full bg-white border border-orange-100 rounded-xl px-4 py-3">
+          </div>
+        </div>
+        <div class="mb-4">
+          <label class="text-sm font-medium mb-1 block">Email</label>
+          <input required name="email" type="email" placeholder="you@email.com" class="w-full bg-white border border-orange-100 rounded-xl px-4 py-3">
+        </div>
+        <div class="mb-4">
+          <label class="text-sm font-medium mb-1 block">I’m interested in</label>
+          <select name="interest" class="w-full bg-white border border-orange-100 rounded-xl px-4 py-3">
+            <option>Adopting a dog</option>
+            <option>Buying accessories</option>
+            <option>Both</option>
+            <option>General enquiry</option>
+          </select>
+        </div>
+        <div class="mb-6">
+          <label class="text-sm font-medium mb-1 block">Message</label>
+          <textarea required name="message" rows="4" placeholder="Breed, age preference, questions..." class="w-full bg-white border border-orange-100 rounded-xl px-4 py-3 resize-none"></textarea>
+        </div>
+        <button type="submit" class="btn-primary w-full text-white py-3.5 rounded-full font-semibold">Send Message</button>
+        <p class="text-xs text-center text-[#8a6a55] mt-3">We’ll reply at tysondogkennelpetshop@gmail.com</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-[#5B3A29] text-orange-50 pt-16 pb-8">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+      <div>
+        <div class="flex items-center gap-2 mb-4">
+          <span class="text-2xl">🐾</span>
+          <span class="font-fredoka text-xl font-bold">Tyson Dog Kennel</span>
+        </div>
+        <p class="text-orange-100/80 text-sm leading-relaxed">Premium dogs and accessories. Healthy pups, honest advice, and everything your companion needs to thrive.</p>
+      </div>
+      <div>
+        <h4 class="font-fredoka font-semibold text-lg mb-4">Explore</h4>
+        <ul class="space-y-2 text-sm text-orange-100/80">
+          <li><a href="#dogs" class="hover:text-white">Our Dogs</a></li>
+          <li><a href="#accessories" class="hover:text-white">Accessories</a></li>
+          <li><a href="#about" class="hover:text-white">About the Kennel</a></li>
+          <li><a href="#visit" class="hover:text-white">Visit Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-fredoka font-semibold text-lg mb-4">Contact</h4>
+        <ul class="space-y-2 text-sm text-orange-100/80">
+          <li><a href="tel:7352757487" class="hover:text-white">7352757487</a></li>
+          <li><a href="mailto:tysondogkennelpetshop@gmail.com" class="hover:text-white break-all">tysondogkennelpetshop@gmail.com</a></li>
+          <li><a href="https://share.google/5pGFfhTTH7oGObCUZ" target="_blank" rel="noopener" class="hover:text-white">Google Maps</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-fredoka font-semibold text-lg mb-4">Hours</h4>
+        <p class="text-sm text-orange-100/80">Monday – Sunday<br>9:00 AM – 7:00 PM</p>
+        <p class="text-sm text-orange-100/80 mt-3">Walk-ins welcome. Puppy viewings preferred with a quick call.</p>
+      </div>
+    </div>
+    <div class="border-t border-white/10 pt-6 flex flex-col sm:flex-row justify-between gap-3 text-xs text-orange-100/60">
+      <p>© <span id="year"></span> Tyson Dog Kennel. All rights reserved.</p>
+      <p>Headed by Tyson Dog Kennel · Pets sold responsibly</p>
+    </div>
+  </div>
+</footer>
+
+<!-- CART DRAWER -->
+<div id="overlay" class="overlay fixed inset-0 bg-black/40 z-[60]"></div>
+<aside id="cartDrawer" class="cart-drawer fixed top-0 right-0 h-full w-full max-w-md bg-white z-[70] shadow-2xl flex flex-col">
+  <div class="flex items-center justify-between p-5 border-b">
+    <h3 class="font-fredoka text-xl font-bold">Your Cart</h3>
+    <button id="closeCart" class="p-2 rounded-full hover:bg-orange-50" aria-label="Close cart">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <div id="cartItems" class="flex-1 overflow-y-auto p-5 space-y-4"></div>
+  <div class="p-5 border-t bg-[#FFF6EC]">
+    <div class="flex justify-between font-semibold mb-4">
+      <span>Total</span>
+      <span id="cartTotal">₹0</span>
+    </div>
+    <button id="checkoutBtn" class="btn-primary w-full text-white py-3.5 rounded-full font-semibold">Checkout via WhatsApp</button>
+  </div>
+</aside>
+
+<!-- WISHLIST DRAWER -->
+<aside id="wishDrawer" class="cart-drawer fixed top-0 right-0 h-full w-full max-w-md bg-white z-[70] shadow-2xl flex flex-col">
+  <div class="flex items-center justify-between p-5 border-b">
+    <h3 class="font-fredoka text-xl font-bold">Wishlist</h3>
+    <button id="closeWish" class="p-2 rounded-full hover:bg-orange-50" aria-label="Close wishlist">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <div id="wishItems" class="flex-1 overflow-y-auto p-5 space-y-4"></div>
+</aside>
+
+<!-- PRODUCT / DOG MODAL -->
+<div id="modal" class="modal-backdrop fixed inset-0 z-[80] bg-black/50 flex items-center justify-center p-4">
+  <div class="modal-box bg-white rounded-3xl max-w-lg w-full overflow-hidden max-h-[90vh] overflow-y-auto">
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div id="toast" class="toast fixed bottom-6 right-6 z-[90] bg-[#5B3A29] text-white px-5 py-3 rounded-2xl shadow-xl text-sm font-medium"></div>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+const dogs = [
+  {id:'d1', breed:'labrador', name:'Bruno', age:'8 weeks', sex:'Male', price:28000, img:'https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=700&q=80', desc:'Playful Labrador retriever pup. First vaccines done, dewormed, great with kids. Comes with starter kit.'},
+  {id:'d2', breed:'german-shepherd', name:'Rex', age:'10 weeks', sex:'Male', price:35000, img:'https://images.unsplash.com/photo-1568572933382-74d440642117?auto=format&fit=crop&w=700&q=80', desc:'Bold German Shepherd with strong bone structure. Parents on-site. KCI lineage available.'},
+  {id:'d3', breed:'golden', name:'Honey', age:'9 weeks', sex:'Female', price:42000, img:'https://images.unsplash.com/photo-1558788353-f76d92427f16?auto=format&fit=crop&w=700&q=80', desc:'Soft-coated Golden Retriever girl. Extremely social, crate-introduced, ready for a family home.'},
+  {id:'d4', breed:'beagle', name:'Coco', age:'7 weeks', sex:'Female', price:24000, img:'https://images.unsplash.com/photo-1505628346881-b72b27e84530?auto=format&fit=crop&w=700&q=80', desc:'Curious tri-color Beagle. Compact size, wonderful companion for apartments with daily walks.'},
+  {id:'d5', breed:'indie', name:'Sheru', age:'12 weeks', sex:'Male', price:4500, img:'https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=700&q=80', desc:'Resilient Indie pup raised at the kennel. Fully vaccinated, tick-free, endlessly loyal.'},
+  {id:'d6', breed:'pug', name:'Milo', age:'8 weeks', sex:'Male', price:18000, img:'https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=700&q=80', desc:'Compact fawn Pug with a wrinkly smile. Indoor-friendly and already responding to his name.'}
+];
+
+const accessories = [
+  {id:'a1', cat:'gear', name:'Leather Collar & Leash Set', price:899, img:'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=600&q=80', desc:'Genuine leather collar with matching leash. Adjustable, nickel hardware.'},
+  {id:'a2', cat:'gear', name:'Padded Harness', price:749, img:'https://images.unsplash.com/photo-1601758228041-f3b2795255f1?auto=format&fit=crop&w=600&q=80', desc:'No-pull harness with breathable mesh. Sizes XS–XL.'},
+  {id:'a3', cat:'toys', name:'Rope & Ball Combo', price:349, img:'https://images.unsplash.com/photo-1535294435445-d7249524ef2e?auto=format&fit=crop&w=600&q=80', desc:'Durable cotton rope toy plus bounce ball. Perfect for tug and fetch.'},
+  {id:'a4', cat:'toys', name:'Plush Squeaky Bone', price:299, img:'https://images.unsplash.com/photo-1576201836106-db1758fd1c97?auto=format&fit=crop&w=600&q=80', desc:'Soft indoor toy with hidden squeaker. Machine washable cover.'},
+  {id:'a5', cat:'food', name:'Premium Puppy Kibbles 3kg', price:1299, img:'https://images.unsplash.com/photo-1589924691995-400dc9ecc119?auto=format&fit=crop&w=600&q=80', desc:'Chicken & rice formula for growing pups. No artificial colors.'},
+  {id:'a6', cat:'food', name:'Dental Chew Sticks (30pc)', price:459, img:'https://images.unsplash.com/photo-1568640347023-a616a30bc3bd?auto=format&fit=crop&w=600&q=80', desc:'Daily dental care chews that reduce tartar and freshen breath.'},
+  {id:'a7', cat:'care', name:'Orthopedic Dog Bed', price:2199, img:'https://images.unsplash.com/photo-1541599540903-216a46ca1dc0?auto=format&fit=crop&w=600&q=80', desc:'Memory-foam bed with removable cover. Ideal for medium breeds.'},
+  {id:'a8', cat:'care', name:'Steel Bowl Twin Pack', price:399, img:'https://images.unsplash.com/photo-1623387641168-d9803ddd3f45?auto=format&fit=crop&w=600&q=80', desc:'Antislip stainless bowls for food and water. Easy to clean.'}
+];
+
+let cart = [];
+let wishlist = [];
+let dogFilter = 'all';
+let accFilter = 'all';
+
+function formatINR(n){ return '₹' + n.toLocaleString('en-IN'); }
+
+function renderDogs(){
+  const grid = document.getElementById('dogGrid');
+  const list = dogs.filter(d => dogFilter === 'all' || d.breed === dogFilter);
+  grid.innerHTML = list.map(d => `
+    <article class="bg-white rounded-3xl overflow-hidden shadow-sm card-hover fade-in show">
+      <div class="relative h-56">
+        <img src="${d.img}" alt="${d.name} the ${d.breed}" class="w-full h-full object-cover">
+        <button data-wish="${d.id}" class="heart-btn ${wishlist.includes(d.id)?'active':''} absolute top-3 right-3 w-10 h-10 bg-white/90 rounded-full flex items-center justify-center shadow">
+          <svg class="w-5 h-5" fill="none" stroke="#FF6B6B" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+        </button>
+        <span class="absolute bottom-3 left-3 bg-white/90 text-xs font-semibold px-3 py-1 rounded-full">${d.age} · ${d.sex}</span>
+      </div>
+      <div class="p-5">
+        <div class="flex justify-between items-start mb-2">
+          <div>
+            <h3 class="font-fredoka text-xl font-bold">${d.name}</h3>
+            <p class="text-sm text-[#8a6a55] capitalize">${d.breed.replace('-',' ')}</p>
+          </div>
+          <p class="font-bold text-[var(--brand-orange)]">${formatINR(d.price)}</p>
+        </div>
+        <p class="text-sm text-[#6b4a38] mb-4 line-clamp-2">${d.desc}</p>
+        <div class="flex gap-2">
+          <button data-view="${d.id}" class="flex-1 border-2 border-[#5B3A29] text-[#5B3A29] rounded-full py-2 text-sm font-semibold hover:bg-[#5B3A29] hover:text-white transition">Details</button>
+          <button data-add="${d.id}" class="flex-1 btn-primary text-white rounded-full py-2 text-sm font-semibold">Reserve</button>
+        </div>
+      </div>
+    </article>
+  `).join('') || '<p class="col-span-full text-center text-[#8a6a55]">No pups in this breed right now — call us for upcoming litters.</p>';
+}
+
+function renderAcc(){
+  const grid = document.getElementById('accGrid');
+  const list = accessories.filter(a => accFilter === 'all' || a.cat === accFilter);
+  grid.innerHTML = list.map(a => `
+    <article class="bg-[#FFF6EC] rounded-3xl overflow-hidden card-hover">
+      <div class="relative h-44">
+        <img src="${a.img}" alt="${a.name}" class="w-full h-full object-cover">
+        <button data-wish="${a.id}" class="heart-btn ${wishlist.includes(a.id)?'active':''} absolute top-3 right-3 w-9 h-9 bg-white/90 rounded-full flex items-center justify-center shadow">
+          <svg class="w-4 h-4" fill="none" stroke="#FF6B6B" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+        </button>
+      </div>
+      <div class="p-4">
+        <h3 class="font-semibold mb-1">${a.name}</h3>
+        <p class="text-[var(--brand-orange)] font-bold mb-3">${formatINR(a.price)}</p>
+        <button data-add="${a.id}" class="btn-primary w-full text-white rounded-full py-2 text-sm font-semibold">Add to Cart</button>
+      </div>
+    </article>
+  `).join('');
+}
+
+function findItem(id){ return dogs.find(d=>d.id===id) || accessories.find(a=>a.id===id); }
+
+function updateBadges(){
+  const cc = document.getElementById('cartCount');
+  const wc = document.getElementById('wishCount');
+  const qty = cart.reduce((s,i)=>s+i.qty,0);
+  cc.textContent = qty;
+  cc.classList.toggle('hidden', qty===0);
+  wc.textContent = wishlist.length;
+  wc.classList.toggle('hidden', wishlist.length===0);
+}
+
+function renderCart(){
+  const box = document.getElementById('cartItems');
+  if(!cart.length){
+    box.innerHTML = '<p class="text-center text-[#8a6a55] mt-10">Your cart is empty. Add a pup or an accessory!</p>';
+  } else {
+    box.innerHTML = cart.map(i => `
+      <div class="flex gap-3 items-center">
+        <img src="${i.img}" alt="" class="w-16 h-16 rounded-xl object-cover">
+        <div class="flex-1">
+          <p class="font-semibold text-sm">${i.name}</p>
+          <p class="text-xs text-[var(--brand-orange)]">${formatINR(i.price)}</p>
+          <div class="flex items-center gap-2 mt-1">
+            <button data-dec="${i.id}" class="w-6 h-6 rounded-full bg-orange-100 text-sm">−</button>
+            <span class="text-sm font-medium">${i.qty}</span>
+            <button data-inc="${i.id}" class="w-6 h-6 rounded-full bg-orange-100 text-sm">+</button>
+          </div>
+        </div>
+        <button data-rem="${i.id}" class="text-[#8a6a55] text-xs hover:text-red-500">Remove</button>
+      </div>
+    `).join('');
+  }
+  const total = cart.reduce((s,i)=>s+i.price*i.qty,0);
+  document.getElementById('cartTotal').textContent = formatINR(total);
+}
+
+function renderWish(){
+  const box = document.getElementById('wishItems');
+  if(!wishlist.length){
+    box.innerHTML = '<p class="text-center text-[#8a6a55] mt-10">No favorites yet. Tap the heart on any dog or product.</p>';
+    return;
+  }
+  box.innerHTML = wishlist.map(id => {
+    const i = findItem(id);
+    return `<div class="flex gap-3 items-center">
+      <img src="${i.img}" alt="" class="w-16 h-16 rounded-xl object-cover">
+      <div class="flex-1"><p class="font-semibold text-sm">${i.name}</p><p class="text-xs text-[var(--brand-orange)]">${formatINR(i.price)}</p></div>
+      <button data-add="${i.id}" class="text-xs font-semibold bg-[var(--brand-orange)] text-white px-3 py-1.5 rounded-full">Add</button>
+    </div>`;
+  }).join('');
+}
+
+function addToCart(id){
+  const item = findItem(id);
+  if(!item) return;
+  const existing = cart.find(c=>c.id===id);
+  if(existing) existing.qty++;
+  else cart.push({...item, qty:1});
+  updateBadges();
+  renderCart();
+  showToast(item.name + ' added to cart');
+}
+
+function showToast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'), 2400);
+}
+
+function openDrawer(el){
+  document.getElementById('overlay').classList.add('show');
+  el.classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeDrawers(){
+  document.getElementById('overlay').classList.remove('show');
+  document.getElementById('cartDrawer').classList.remove('open');
+  document.getElementById('wishDrawer').classList.remove('open');
+  document.body.style.overflow='';
+}
+
+document.getElementById('cartBtn').onclick = ()=>{ renderCart(); openDrawer(document.getElementById('cartDrawer')); };
+document.getElementById('wishlistBtn').onclick = ()=>{ renderWish(); openDrawer(document.getElementById('wishDrawer')); };
+document.getElementById('closeCart').onclick = closeDrawers;
+document.getElementById('closeWish').onclick = closeDrawers;
+document.getElementById('overlay').onclick = ()=>{ closeDrawers(); closeModal(); };
+
+document.getElementById('cartItems').addEventListener('click', e=>{
+  const inc = e.target.closest('[data-inc]');
+  const dec = e.target.closest('[data-dec]');
+  const rem = e.target.closest('[data-rem]');
+  if(inc){ const c=cart.find(i=>i.id===inc.dataset.inc); if(c) c.qty++; }
+  if(dec){ const c=cart.find(i=>i.id===dec.dataset.dec); if(c){ c.qty--; if(c.qty<1) cart=cart.filter(i=>i.id!==c.id); } }
+  if(rem){ cart=cart.filter(i=>i.id!==rem.dataset.rem); }
+  updateBadges(); renderCart();
+});
+
+document.getElementById('wishItems').addEventListener('click', e=>{
+  const add = e.target.closest('[data-add]');
+  if(add){ addToCart(add.dataset.add); }
+});
+
+document.body.addEventListener('click', e=>{
+  const add = e.target.closest('[data-add]');
+  const wish = e.target.closest('[data-wish]');
+  const view = e.target.closest('[data-view]');
+  if(add && !e.target.closest('#wishItems')) addToCart(add.dataset.add);
+  if(wish){
+    const id = wish.dataset.wish;
+    if(wishlist.includes(id)) wishlist = wishlist.filter(x=>x!==id);
+    else wishlist.push(id);
+    updateBadges();
+    renderDogs(); renderAcc();
+  }
+  if(view){
+    const d = findItem(view.dataset.view);
+    openModal(d);
+  }
+});
+
+function openModal(d){
+  document.getElementById('modalContent').innerHTML = `
+    <img src="${d.img}" alt="${d.name}" class="w-full h-56 object-cover">
+    <div class="p-6">
+      <div class="flex justify-between items-start mb-2">
+        <div>
+          <h3 class="font-fredoka text-2xl font-bold">${d.name}</h3>
+          <p class="text-sm text-[#8a6a55] capitalize">${d.age || ''} ${d.sex ? '· '+d.sex : ''} ${d.breed ? '· '+d.breed.replace('-',' ') : ''}</p>
+        </div>
+        <p class="font-bold text-xl text-[var(--brand-orange)]">${formatINR(d.price)}</p>
+      </div>
+      <p class="text-[#6b4a38] mb-6">${d.desc}</p>
+      <div class="flex gap-3">
+        <button data-add="${d.id}" class="flex-1 btn-primary text-white rounded-full py-3 font-semibold">Reserve / Add</button>
+        <button id="closeModalBtn" class="flex-1 border-2 border-[#5B3A29] rounded-full py-3 font-semibold">Close</button>
+      </div>
+    </div>`;
+  document.getElementById('modal').classList.add('show');
+  document.getElementById('closeModalBtn').onclick = closeModal;
+}
+function closeModal(){ document.getElementById('modal').classList.remove('show'); }
+document.getElementById('modal').addEventListener('click', e=>{ if(e.target.id==='modal') closeModal(); });
+
+document.getElementById('breedFilters').addEventListener('click', e=>{
+  const btn = e.target.closest('.breed-chip');
+  if(!btn) return;
+  document.querySelectorAll('.breed-chip').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  dogFilter = btn.dataset.breed;
+  renderDogs();
+});
+
+document.getElementById('accTabs').addEventListener('click', e=>{
+  const btn = e.target.closest('.tab-btn');
+  if(!btn) return;
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  accFilter = btn.dataset.cat;
+  renderAcc();
+});
+
+document.getElementById('checkoutBtn').onclick = ()=>{
+  if(!cart.length){ showToast('Cart is empty'); return; }
+  const lines = cart.map(i=>`• ${i.name} x${i.qty} = ${formatINR(i.price*i.qty)}`).join('%0A');
+  const total = cart.reduce((s,i)=>s+i.price*i.qty,0);
+  const msg = `Hi Tyson Dog Kennel! I'd like to order:%0A${lines}%0A%0ATotal: ${formatINR(total)}`;
+  window.open('https://wa.me/917352757487?text='+msg, '_blank');
+};
+
+document.getElementById('contactForm').addEventListener('submit', e=>{
+  e.preventDefault();
+  const fd = new FormData(e.target);
+  const body = encodeURIComponent(
+    `Name: ${fd.get('name')}\nPhone: ${fd.get('phone')}\nInterest: ${fd.get('interest')}\n\n${fd.get('message')}`
+  );
+  window.location.href = `mailto:tysondogkennelpetshop@gmail.com?subject=Enquiry from ${encodeURIComponent(fd.get('name'))}&body=${body}`;
+  showToast('Opening your email app…');
+  e.target.reset();
+});
+
+const menuBtn = document.getElementById('menuBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+menuBtn.onclick = ()=> mobileMenu.classList.toggle('open');
+mobileMenu.querySelectorAll('a').forEach(a=>a.onclick=()=>mobileMenu.classList.remove('open'));
+
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', ()=>{
+  navbar.classList.toggle('nav-scrolled', window.scrollY>20);
+  const sections = [...document.querySelectorAll('section[id]')];
+  const y = window.scrollY + 120;
+  sections.forEach(s=>{
+    const link = document.querySelector(`.nav-link[href="#${s.id}"]`);
+    if(!link) return;
+    link.classList.toggle('active', y>=s.offsetTop && y<s.offsetTop+s.offsetHeight);
+  });
+});
+
+const io = new IntersectionObserver(entries=>{
+  entries.forEach(en=>{ if(en.isIntersecting) en.target.classList.add('show'); });
+},{threshold:0.12});
+document.querySelectorAll('.fade-in').forEach(el=>io.observe(el));
+
+renderDogs();
+renderAcc();
+updateBadges();
+</script>
+</body>
+</html>
